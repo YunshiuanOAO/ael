@@ -56,8 +56,8 @@ target_include_directories(
 target_compile_definitions(
     shellcode-pe
     PRIVATE
-    SERVER="191.44.44.199"
-    PORT=443
+    SERVER="192.168.1.127"
+    PORT=8443
     SH_LOG_FILE="C:\\\\Windows\\\\System32\\\\wsdapi_dat.log"
     ENCRYPTED_LOGGING=1 # set to 0 to disable, set to non-0 to enable
 )
@@ -65,8 +65,8 @@ target_compile_definitions(
 target_compile_definitions(
     test4shellcode-pe
     PRIVATE
-    SERVER="191.44.44.224"
-    PORT=443
+    SERVER="192.168.1.127"
+    PORT=8443
     SH_LOG_FILE="C:\\\\Windows\\\\System32\\\\gflagsui_dat.log"
     ENCRYPTED_LOGGING=1 # set to 0 to disable, set to non-0 to enable
 )

