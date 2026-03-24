@@ -67,6 +67,10 @@ def main():
     parser.add_argument('-l', '--logo', help='Path to a logo image to be used in email signature')
     parser.add_argument('-a', '--attachment', dest='attachment_path', help='Path to a file to be attached to the email')
     parser.add_argument('-an', '--attachment-name', dest='attachment_name', help='Name of the attachment file')
+    parser.add_argument('-p', '--port', dest='port', type=int, default=587, help='SMTP port (default: 587)')
+    parser.add_argument('-u', '--user', dest='smtp_user', help='SMTP username for authentication')
+    parser.add_argument('-pw', '--password', dest='smtp_pass', help='SMTP password for authentication')
+    parser.add_argument('--tls', action='store_true', help='Enable STARTTLS')
 
     args = parser.parse_args()
 
@@ -84,12 +88,16 @@ def main():
     mime_message = build_email_message(args.sender, args.sender_name, args.recipients_str, args.cc_list, args.subject, html, args.logo, attachment)
 
     try:
-        # using port 2525 since AWS silently blocks all traffic to port 25 to any non-RFC1918 addresses
-        smtpObj = smtplib.SMTP(args.smtp_server, 2525)
+        smtpObj = smtplib.SMTP(args.smtp_server, args.port)
+        if args.tls:
+            smtpObj.starttls()
+        if args.smtp_user and args.smtp_pass:
+            smtpObj.login(args.smtp_user, args.smtp_pass)
         smtpObj.sendmail(args.sender, recipients, mime_message)
+        smtpObj.quit()
         print('Successfully sent email')
     except SMTPException as e:
-        print('Error: unable to send email: ' + e)
+        print('Error: unable to send email: ' + str(e))
 
 
 if __name__ == '__main__':
