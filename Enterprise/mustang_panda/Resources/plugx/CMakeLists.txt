@@ -31,7 +31,7 @@ enable_testing()
 FetchContent_Declare(
     assemblyline
     GIT_REPOSITORY
-        "git@github.com:attackevals/assemblyline.git"
+        "https://github.com/attackevals/assemblyline.git"
     GIT_TAG
         "a1ee49a9bd61955a738ef9a17d83a63bf310edff"
 )
