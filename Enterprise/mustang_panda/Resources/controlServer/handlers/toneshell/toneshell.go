@@ -707,6 +707,11 @@ func (o *ToneshellHandler) ConvertTaskToResponse(sessionId string, packetType by
 func (o *ToneshellHandler) ParseImplantPacket(data []byte) (*ImplantPacket, error) {
     implantPacket := new(ImplantPacket)
 
+    // Check minimum packet size
+    if len(data) < MAGIC_BYTES_SIZE {
+        return nil, errors.New("packet too small, dropping")
+    }
+
     // Check for magic bytes, drop packet if they don't match
     data_magic_bytes := hex.EncodeToString(data[:MAGIC_BYTES_SIZE])
     if data_magic_bytes != MAGIC_BYTES_STR {
