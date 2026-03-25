@@ -79,7 +79,7 @@ def main():
         html = f.read()
 
     # parse recipients as a list
-    recipients = args.recipients_str.split(',') + args.cc_list.split(',')
+    recipients = [r for r in args.recipients_str.split(',') + args.cc_list.split(',') if r.strip()]
 
     # build attachment dict
     attachment = dict(attachment_path=args.attachment_path, attachment_name=args.attachment_name)
